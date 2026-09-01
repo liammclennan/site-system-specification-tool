@@ -103,6 +103,14 @@
       .step::before { content: "0" counter(step); display: block; margin-bottom: 36px; color: var(--blue); font-size: .78rem; font-weight: 800; }
       .step h3 { margin: 0 0 10px; }
       .step p { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.6; }
+      .quickstart { padding-top: 34px; }
+      .quickstart-card { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: center; padding: 58px; border: 1px solid var(--line); border-radius: 28px; background: var(--white); }
+      .quickstart-card h2 { margin: 0 0 16px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 500; line-height: 1.08; letter-spacing: -.035em; }
+      .quickstart-card p { margin: 0; color: var(--muted); line-height: 1.7; }
+      .commands { display: grid; gap: 14px; }
+      .command { overflow-x: auto; padding: 18px 20px; border: 1px solid #26334a; border-radius: 12px; background: #101827; color: #e6edf8; font: .84rem/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: nowrap; }
+      .command::before { content: "$ "; color: #7fdbb7; }
+      .command-note { color: var(--muted); font-size: .82rem; line-height: 1.55; }
       .cta { padding-top: 32px; }
       .cta-card { padding: 74px; border-radius: 28px; text-align: center; background: var(--blue); color: white; overflow: hidden; position: relative; }
       .cta-card::before, .cta-card::after { content: ""; position: absolute; width: 280px; height: 280px; border: 1px solid #ffffff2b; border-radius: 50%; }
@@ -130,6 +138,7 @@
         .float-note { display: none; }
         section { padding: 78px 0; }
         .feature-grid, .workflow-grid { grid-template-columns: 1fr; }
+        .quickstart-card { grid-template-columns: 1fr; gap: 36px; padding: 38px 24px; }
         .step:not(:last-child)::after { display: none; }
         .cta-card { padding: 55px 22px; }
         footer { flex-direction: column; }
@@ -140,7 +149,7 @@
     <header class="shell">
       <nav aria-label="Main navigation">
         <a class="brand" href="#top"><span class="brand-mark">S</span>System Specification Tool</a>
-        <div class="nav-links"><a href="#integrity">Integrity</a><a href="#agents">AI agents</a><a href="#workflow">How it works</a><a class="button" href="/">Open the tool</a></div>
+        <div class="nav-links"><a href="#integrity">Integrity</a><a href="#agents">AI agents</a><a href="#workflow">How it works</a><a class="button" href="#quickstart">Get started</a></div>
       </nav>
     </header>
 
@@ -150,7 +159,7 @@
           <span class="eyebrow">Living system specifications</span>
           <h1>Keep your system’s truth <em>intact.</em></h1>
           <p class="hero-copy">Structure complex specifications, connect every claim to evidence, and give people and AI agents one dependable description of how your system is meant to work.</p>
-          <div class="hero-actions"><a class="button" href="/">Open System Specification Tool <span aria-hidden="true">→</span></a><a class="button secondary" href="#agents">Built for AI agents</a></div>
+          <div class="hero-actions"><a class="button" href="#quickstart">Get started <span aria-hidden="true">→</span></a><a class="button secondary" href="#agents">Built for AI agents</a></div>
           <div class="trust-line"><span>Git-friendly files</span><span>Evidence-backed claims</span><span>Agent-ready Markdown</span></div>
         </div>
         <div class="product-card" aria-label="System Specification Tool interface preview">
@@ -222,8 +231,19 @@
         </div>
       </section>
 
+      <section class="quickstart" id="quickstart">
+        <div class="shell quickstart-card">
+          <div><span class="eyebrow">Quick start</span><h2>From install to living specification in two commands.</h2><p>Install the CLI globally, navigate to the directory that will contain your specification, and point the tool at your test output. The application starts and opens in your browser.</p></div>
+          <div class="commands" aria-label="Installation and startup commands">
+            <div class="command">npm install -g system-specification-tool</div>
+            <div class="command">system-specification-tool --test-results=&lt;directory containing test output files&gt;</div>
+            <div class="command-note">The current directory becomes the specification project. Test results stay in place and may be JSON, JUnit/XUnit XML, MSTest TRX, TAP, Cargo output, or Go <code>test -json</code>.</div>
+          </div>
+        </div>
+      </section>
+
       <section class="cta">
-        <div class="shell cta-card"><h2>Make your specification part of the system.</h2><p>Replace stale documents and fragmented context with a living, verifiable description that humans and AI agents can trust.</p><a class="button" href="/">Open System Specification Tool <span aria-hidden="true">→</span></a></div>
+        <div class="shell cta-card"><h2>Make your specification part of the system.</h2><p>Replace stale documents and fragmented context with a living, verifiable description that humans and AI agents can trust.</p><a class="button" href="#quickstart">Get started <span aria-hidden="true">→</span></a></div>
       </section>
     </main>
 
